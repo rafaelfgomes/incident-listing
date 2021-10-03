@@ -19,14 +19,8 @@ class CreateIncidentsTable extends Migration
             $table->longText('description');
             $table->unsignedBigInteger('fk_criticality_id');
             $table->unsignedBigInteger('fk_type_id');
-            $table->boolean('status');
-            $table->timestamp('created_at', 0);
-        });
-
-        Schema::table('incidents', function(Blueprint $table)
-        {
-            //$table->foreignId('criticality_id')->constrained('criticalities');
-            //$table->foreignId('fk_type_id')->constrained('types');
+            $table->tinyInteger('status')->default('1');
+            $table->timestamps();
         });
     }
 
