@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Criticality extends Model
 {
+    public $timestamps = false;
     use HasFactory;
+
+    protected $table = 'criticalities';
+    protected $fillable = ['name'];
 }

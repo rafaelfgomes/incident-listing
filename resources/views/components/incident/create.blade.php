@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Incident List')
 @section('content')
-    <form action="{{route('incidents.store')}}" method="post">
+    <form action="{{route('incident.store')}}" method="post">
         @csrf
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Titulo</label>

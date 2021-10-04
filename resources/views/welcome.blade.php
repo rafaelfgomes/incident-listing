@@ -44,7 +44,7 @@
                         <div class="p-6">
                             <div class="flex items-center">
                                 <i class="fas fa-indent"></i>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('incidents.list')}}" class="underline text-gray-900 dark:text-white">Incidentes</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('incident.list')}}" class="underline text-gray-900 dark:text-white">Incidentes</a></div>
                             </div>
 
                             <div class="ml-12">
@@ -63,7 +63,7 @@
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
                             <div class="flex items-center">
                                 <i class="fas fa-align-right"></i>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="" class="underline text-gray-900 dark:text-white">Criticidade</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('criticality.list')}}" class="underline text-gray-900 dark:text-white">Criticidade</a></div>
                             </div>
 
                             <div class="ml-12">
@@ -81,7 +81,7 @@
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700">
                             <div class="flex items-center">
                                 <i class="fas fa-list-ol"></i>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="" class="underline text-gray-900 dark:text-white">Tipo</a></div>
+                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="{{route('type.list')}}" class="underline text-gray-900 dark:text-white">Tipo</a></div>
                             </div>
 
                             <div class="ml-12">
@@ -98,8 +98,8 @@
 
                         <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
                             <div class="flex items-center">
-                                <i class="fas fa-clipboard-list"></i>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white"><a href="" class="underline text-gray-900 dark:text-white">Lista Criticidade / Tipo</a></div>
+                                <i class="fab fa-github"></i>
+                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white"><a href="https://github.com/Lelisvaldo/incident-listing" class="underline text-gray-900 dark:text-white">Project Repository</a></div>
                             </div>
 
                             <div class="ml-12">

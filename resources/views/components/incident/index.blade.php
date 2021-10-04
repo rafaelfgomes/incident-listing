@@ -21,7 +21,12 @@
                 <td>{{$incident->descritdtion}}</td>
                 <td>{{$incident->fk_criticality_id}}</td>
                 <td>{{$incident->fk_tytde_id}}</td>
-                <td>{{$incident->status}}</td>
+                <td>@if($incident->status == 1)
+                        <i class="fas fa-toggle-on"></i>
+                    @else
+                        <i class="fas fa-toggle-off"></i>
+                    @endif
+                </td>
                 <td>{{$incident->created_at}}</td>
             </tr>
         @endforeach
