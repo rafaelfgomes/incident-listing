@@ -16,20 +16,31 @@
         <tbody>
         @foreach($incidents as $incident)
             <tr>
-                <td>{{$incident->incident_id}}</td>
+                <td>{{$incident->id}}</td>
                 <td>{{$incident->title}}</td>
-                <td>{{$incident->descritdtion}}</td>
-                <td>{{$incident->fk_criticality_id}}</td>
-                <td>{{$incident->fk_tytde_id}}</td>
+                <td>{{$incident->description}}</td>
+                <td>{{$incident->types_name}}</td>
+                <td>{{$incident->criticalities_name}}</td>
                 <td>@if($incident->status == 1)
                         <i class="fas fa-toggle-on"></i>
                     @else
                         <i class="fas fa-toggle-off"></i>
                     @endif
                 </td>
-                <td>{{$incident->created_at}}</td>
+                <td>{{date('d/m/Y - H:m:s', strtotime($incident->created_at))}}</td>
+                <td>
+                    <a href="{{route('incident.edit', $incident->id)}}" type="button" class="btn btn-light">Editar</a>
+                </td>
+                <td>
+                    <form action="{{ route('incident.delete',$incident->id)}}" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <input type="submit" class="btn btn-light" value="Deletar"/>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>
     </table>
 @endsection
+

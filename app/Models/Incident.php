@@ -15,7 +15,5 @@ class Incident extends Model
         'description',
         'fk_criticality_id',
         'fk_type_id',
-        'updated_at',
-        'created_at',
     ];
 }

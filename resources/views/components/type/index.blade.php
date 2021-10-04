@@ -11,7 +11,7 @@
         <tbody>
         @foreach($types as $type)
             <tr>
-                <td>{{$type->type_id}}</td>
+                <td>{{$type->id}}</td>
                 <td>{{$type->name}}</td>
             </tr>
         @endforeach

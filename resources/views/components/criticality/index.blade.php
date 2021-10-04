@@ -11,7 +11,7 @@
         <tbody>
         @foreach($criticalities as $criticality)
             <tr>
-                <td>{{$criticality->criticality_id}}</td>
+                <td>{{$criticality->id}}</td>
                 <td>{{$criticality->name}}</td>
             </tr>
         @endforeach

@@ -14,11 +14,11 @@ class CreateIncidentsTable extends Migration
     public function up()
     {
         Schema::create('incidents', function (Blueprint $table) {
-            $table->id('incident_id');
+            $table->id();
             $table->string('title');
             $table->longText('description');
-            $table->unsignedBigInteger('fk_criticality_id');
-            $table->unsignedBigInteger('fk_type_id');
+            $table->bigInteger('fk_criticality_id');
+            $table->bigInteger('fk_type_id');
             $table->tinyInteger('status')->default('1');
             $table->timestamps();
         });

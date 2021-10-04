@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/incident', [IncidentController::class, 'index'])->name('incident.list');
+Route::get('/incident/edit/{id}', [IncidentController::class, 'edit'])->name('incident.edit');
+Route::put('/incident/{id}', [IncidentController::class, 'update'])->name('incident.put');
+Route::delete('/incident/{id}', [IncidentController::class, 'delete'])->name('incident.delete');
 Route::get('/incident/create', [IncidentController::class, 'create'])->name('incident.create');
 Route::post('/incident', [IncidentController::class, 'store'])->name('incident.store');
 

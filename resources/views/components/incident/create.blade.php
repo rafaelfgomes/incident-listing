@@ -12,17 +12,16 @@
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-2 col-form-label">Descrição</label>
             <div class="col-sm-10">
-                <textarea type="description" class="form-control" id="description" placeholder="Escreva uma descrição..." required>
-                </textarea>
+                <textarea class="form-control" id="description" name="description" placeholder="Escreva uma descrição..." required></textarea>
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-2 col-form-label">Tipo</label>
             <div class="col-sm-10">
-                <select class="form-control" required>
-                    <option>Default select</option>
+                <select name="fk_type_id" class="form-control">
+                    <option selected>Default select</option>
                     @foreach($types as $type)
-                        <option value="{{$type->type_id}}">{{$type->name}}</option>
+                        <option value="{{$type->id}}">{{$type->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -30,10 +29,10 @@
         <div class="form-group row">
             <label for="inputPassword" class="col-sm-2 col-form-label">Criticidade</label>
             <div class="col-sm-10">
-                <select class="form-control" required>
-                    <option>Default select</option>
+                <select name="fk_criticality_id" id="fk_criticality_id" class="form-control" required>
+                    <option selected>Default select</option>
                     @foreach($criticalities as $criticalitie)
-                        <option value="{{$criticalitie->criticality_id}}">{{$criticalitie->name}}</option>
+                        <option value="{{$criticalitie->id}}">{{$criticalitie->name}}</option>
                     @endforeach
                 </select>
             </div>
