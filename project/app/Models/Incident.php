@@ -13,7 +13,17 @@ class Incident extends Model
     protected $fillable = [
         'title',
         'description',
-        'fk_criticality_id',
-        'fk_type_id',
+        'criticality_id',
+        'type_id',
     ];
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
+
+    public function criticality()
+    {
+        return $this->belongsTo(Criticality::class);
+    }
 }

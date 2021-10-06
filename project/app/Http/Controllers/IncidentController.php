@@ -2,31 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Criticality, Incident, Type};
+use App\Http\Service\IncidentService;
+use App\Http\Service\TypeService;
+use App\Models\{Criticality, Incident};
 use Illuminate\Http\Request;
 
 class IncidentController extends Controller
 {
+    private $incidentService;
+    private $typeService;
+
+    public function __construct(IncidentService $incidentService, TypeService $typeService)
+    {
+        $this->incidentService = $incidentService;
+        $this->typeService = $typeService;
+    }
+
     public function index()
     {
-        $incidents = Incident::join('types', 'types.id', '=', 'incidents.fk_type_id')
-            ->join('criticalities', 'criticalities.id', '=', 'incidents.fk_criticality_id')
-            ->get([
-                'incidents.id',
-                'incidents.title',
-                'incidents.description',
-                'types.name as types_name',
-                'criticalities.name as criticalities_name',
-                'incidents.status',
-                'incidents.created_at',
-            ]);
-
+        $incidents = $this->incidentService->index();
+        
         return view('components.incident.index', compact('incidents'));
     }
 
     public function create()
     {
-        $types = Type::all();
+        $types = $this->typeService->all();
         $criticalities = Criticality::all();
         return view('components.incident.create', compact('types', 'criticalities'));
     }
@@ -43,8 +44,8 @@ class IncidentController extends Controller
             return redirect()->back();
         }
 
-        $criticalitie = $this->getCriticality($incidentValues->fk_criticality_id);
-        $type = $this->getType($incidentValues->fk_type_id);
+        $criticalitie = $this->getCriticality($incidentValues->criticality_id);
+        $type = $this->typeService->getOne($incidentValues->type_id);
         return view('components.incident.edit', compact('incidentValues', 'type', 'criticalitie'));
     }
 
@@ -65,11 +66,6 @@ class IncidentController extends Controller
 
         $incidentValues->delete();
         return redirect()->route('incident.list');
-    }
-
-    public function getType($id)
-    {
-        return Type::find($id);
     }
 
     public function getCriticality($id)

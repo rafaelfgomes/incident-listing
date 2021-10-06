@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Service\TypeService;
 use App\Models\Criticality;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class CriticalityController extends Controller
 {
     public function index()
     {
-        $criticalities = Criticality::all();;
+        $criticalities = Criticality::all();
         return view('components.criticality.index', compact('criticalities'));
     }
 

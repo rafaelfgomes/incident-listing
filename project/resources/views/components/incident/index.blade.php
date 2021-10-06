@@ -16,11 +16,11 @@
         <tbody>
         @foreach($incidents as $incident)
             <tr>
-                <td>{{$incident->id}}</td>
-                <td>{{$incident->title}}</td>
+                <td>{{ $incident->id }}</td>
+                <td>{{ $incident->title }}</td>
                 <td>{{$incident->description}}</td>
-                <td>{{$incident->types_name}}</td>
-                <td>{{$incident->criticalities_name}}</td>
+                <td>{{$incident->type->name}}</td>
+                <td>{{$incident->criticality->name}}</td>
                 <td>@if($incident->status == 1)
                         <i class="fas fa-toggle-on"></i>
                     @else

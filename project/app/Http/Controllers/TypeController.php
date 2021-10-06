@@ -9,7 +9,7 @@ class TypeController extends Controller
 {
     public function index()
     {
-        $types = Type::all();;
+        $types = Type::all();
         return view('components.type.index', compact('types'));
 
     }
